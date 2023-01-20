@@ -1,0 +1,91 @@
+---Write the Queries for ecommerce dataset in elasticsearch in dev tools---
+
+
+#Multi_match Query
+GET kibana_sample_data_ecommerce/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "bailey",
+      "fields": ["customer_first_name","customer_last_name"]
+    }
+  }
+}
+
+
+
+#Bool Query
+GET kibana_sample_data_ecommerce/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {"match":{
+          "day_of_week": "Sunday"
+        }}
+      ],
+      "should":[
+        {"match":{
+          "customer_first_name": "marry"
+        }}
+      ]
+    }
+  }
+}
+
+
+
+#Range Query
+GET kibana_sample_data_ecommerce/_search
+{
+  "query": {
+    "range":{
+      "taxful_total_price": {
+        "gte": 50,
+        "lte": 100
+      }
+    }
+  }
+}
+
+
+
+#Match Query
+GET kibana_sample_data_ecommerce/_search
+{
+  "query": {
+    "match": {
+      "products.product_id": "5419"
+    }
+  }
+}
+
+
+
+#Terms Query
+GET kibana_sample_data_ecommerce/_search
+{
+  "query": {
+    "terms": {
+      "category": [
+        "men",
+        "shoes"
+      ]
+    }
+  }
+}
+
+
+
+#Term Query
+GET kibana_sample_data_ecommerce/_search
+{
+  "query": {
+    "term": {
+      "customer_gender": {
+        "value": "MALE"
+      }
+    }
+  }
+}
+

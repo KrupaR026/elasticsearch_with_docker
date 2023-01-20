@@ -1,0 +1,49 @@
+---ALL BELOW COMMANDS USE IN DEV TOOLS IN ELASTICSEARCH---
+
+
+# Create the index
+PUT /user_details
+
+
+#create the mapping
+PUT /user_details/_mapping
+{
+  "properties": {
+    "name": {
+      "type": "text"
+    },
+    "age":{
+      "type": "integer"
+    }
+  }
+}
+
+
+#Enter the data
+POST /user_details/_doc
+{
+  "name": "Krupa",
+  "age": 21
+}
+
+POST /user_details/_doc
+{
+  "name": "Yug",
+  "age": 18
+}
+
+POST /user_details/_doc
+{
+  "name": "Rutva",
+  "age": 13
+}
+
+POST /user_details/_doc
+{
+  "name": "Kunj",
+  "age": 21
+}
+
+
+#Get the all data
+GET /user_details/_search
